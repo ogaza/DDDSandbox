@@ -1,4 +1,20 @@
+using DDDSandbox.Messages;
+using NServiceBus;
+
 var builder = WebApplication.CreateBuilder(args);
+
+/*
+var endpointConfiguration = new EndpointConfiguration("Samples.ASPNETCore.Sender");
+var transport = endpointConfiguration.UseTransport(new LearningTransport());
+transport.RouteToEndpoint(
+    assembly: typeof(MyMessage).Assembly,
+    destination: "DDFSandbox.Endpoint");
+
+endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+endpointConfiguration.SendOnly();
+
+builder.UseNServiceBus(endpointConfiguration);
+*/
 
 var webClientCorsPolicyName = "DDDSandbox.Web";
 ConfigureCors(builder, webClientCorsPolicyName);
@@ -34,11 +50,26 @@ static void ConfigureBus(WebApplicationBuilder builder)
 {
   builder.Host.UseNServiceBus(context =>
     {
+     
+      
+      //builder.UseNServiceBus(endpointConfiguration);
+
       var endpointConfiguration =
       new EndpointConfiguration("DDDSandbox.API");
-      endpointConfiguration.MakeInstanceUniquelyAddressable("1");
+
+      var transport = endpointConfiguration.UseTransport(new LearningTransport());
+      transport.RouteToEndpoint(
+          assembly: typeof(MyMessage).Assembly,
+          destination: "DDDSandbox.Endpoint");
+      endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+      //endpointConfiguration.SendOnly();
+
+      //endpointConfiguration.MakeInstanceUniquelyAddressable("1");
       //endpointConfiguration.EnableCallbacks();
-      endpointConfiguration.UseTransport(new LearningTransport());
+      //endpointConfiguration.UseTransport(new LearningTransport());
+      //endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+
+      //var endpointInstance = await Endpoint.Start(endpointConfiguration);
 
       return endpointConfiguration;
     });
