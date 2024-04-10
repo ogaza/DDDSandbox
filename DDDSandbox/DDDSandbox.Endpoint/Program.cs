@@ -13,3 +13,8 @@ var endpointInstance = await Endpoint.Start(endpointConfiguration);
 Console.WriteLine("Press any key to exit");
 Console.ReadKey();
 await endpointInstance.Stop();
+
+
+// probably instead of running as a console app
+// wouold be better to create a nservicebus host
+// https://github.com/Particular/docs.particular.net/tree/master/samples/hosting/generic-host/Core_8
