@@ -8,6 +8,20 @@ var endpointConfiguration = new EndpointConfiguration("DDDSandbox.Billing.Paymen
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 endpointConfiguration.UseTransport(new LearningTransport());
 
+#region fault tollerance
+// https://github.com/Particular/docs.particular.net/blob/master/samples/faulttolerance/sample.md
+var recoverability = endpointConfiguration.Recoverability();
+recoverability.Immediate(settings =>
+{
+  settings.NumberOfRetries(0);
+});
+recoverability.Delayed(settings =>
+{
+  settings.NumberOfRetries(0);
+});
+
+#endregion
+
 var endpointInstance = await Endpoint.Start(endpointConfiguration);
 Console.WriteLine("Press any key to exit");
 Console.ReadKey();
