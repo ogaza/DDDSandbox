@@ -2,23 +2,23 @@
 
 using NServiceBus;
 
-Console.Title = "DDDSandbox.Billing.Payments.PaymentAccepted";
-var endpointConfiguration = new EndpointConfiguration("DDDSandbox.Billing.Payments.PaymentAccepted");
+Console.Title = "DDDSandbox.Shipping.BusinessCustomers.ShippingArranged";
+var endpointConfiguration = new EndpointConfiguration("DDDSandbox.Shipping.BusinessCustomers.ShippingArranged");
 
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 endpointConfiguration.UseTransport(new LearningTransport());
 
 #region fault tollerance
 // https://github.com/Particular/docs.particular.net/blob/master/samples/faulttolerance/sample.md
-var recoverability = endpointConfiguration.Recoverability();
-recoverability.Immediate(settings =>
-{
-  settings.NumberOfRetries(2);
-});
-recoverability.Delayed(settings =>
-{
-  settings.NumberOfRetries(0);
-});
+//var recoverability = endpointConfiguration.Recoverability();
+//recoverability.Immediate(settings =>
+//{
+//  settings.NumberOfRetries(0);
+//});
+//recoverability.Delayed(settings =>
+//{
+//  settings.NumberOfRetries(0);
+//});
 
 #endregion
 

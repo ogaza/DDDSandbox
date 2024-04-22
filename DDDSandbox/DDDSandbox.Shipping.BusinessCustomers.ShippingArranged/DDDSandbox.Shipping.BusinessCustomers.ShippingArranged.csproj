@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+   <ItemGroup> 
+     <ProjectReference Include="..\DDDSandbox.Billing.Messages\DDDSandbox.Billing.Messages.csproj" /> 
+     <ProjectReference Include="..\DDDSandbox.Messages\DDDSandbox.Messages.csproj" /> 
+     <ProjectReference Include="..\DDDSandbox.Shipping.Messages\DDDSandbox.Shipping.Messages.csproj" /> 
+   </ItemGroup> 
+
+</Project>

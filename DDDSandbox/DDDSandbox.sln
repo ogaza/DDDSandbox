@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Billing.Messages
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Billing.Payments.PaymentAccepted", "DDDSandbox.Billing.Payments.PaymentAccepted\DDDSandbox.Billing.Payments.PaymentAccepted.csproj", "{B23EBB82-F699-41AB-B8BE-DB6F3DFA6B3D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Shipping.BusinessCustomers.ShippingArranged", "DDDSandbox.Shipping.BusinessCustomers.ShippingArranged\DDDSandbox.Shipping.BusinessCustomers.ShippingArranged.csproj", "{22A5A7F1-44B8-4579-9F76-93CA9376FB5F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Shipping.Messages", "DDDSandbox.Shipping.Messages\DDDSandbox.Shipping.Messages.csproj", "{412E706E-5DF9-4CAC-B061-E12319EC52A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{B23EBB82-F699-41AB-B8BE-DB6F3DFA6B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B23EBB82-F699-41AB-B8BE-DB6F3DFA6B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B23EBB82-F699-41AB-B8BE-DB6F3DFA6B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A5A7F1-44B8-4579-9F76-93CA9376FB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A5A7F1-44B8-4579-9F76-93CA9376FB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A5A7F1-44B8-4579-9F76-93CA9376FB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A5A7F1-44B8-4579-9F76-93CA9376FB5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412E706E-5DF9-4CAC-B061-E12319EC52A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412E706E-5DF9-4CAC-B061-E12319EC52A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412E706E-5DF9-4CAC-B061-E12319EC52A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412E706E-5DF9-4CAC-B061-E12319EC52A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
