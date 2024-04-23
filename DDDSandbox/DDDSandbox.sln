@@ -21,6 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Shipping.Busines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Shipping.Messages", "DDDSandbox.Shipping.Messages\DDDSandbox.Shipping.Messages.csproj", "{412E706E-5DF9-4CAC-B061-E12319EC52A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run", "Run", "{2091D23E-C636-46C6-9999-10FBE01CF2DD}"
+	ProjectSection(SolutionItems) = preProject
+		run.bat = run.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
