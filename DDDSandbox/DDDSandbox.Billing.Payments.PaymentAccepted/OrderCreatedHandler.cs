@@ -4,6 +4,11 @@ using NServiceBus;
 
 namespace DDDSandbox.Billing.Payments.PaymentAccepted
 {
+  /// <summary>
+  /// Handlers the OrderCreated event and all the events
+  /// that inherit from it - so it also handle the 
+  /// OrderCreated_V2 event
+  /// </summary>
   public class OrderCreatedHandler : IHandleMessages<OrderCreated>
   {
     public async Task Handle(OrderCreated message, IMessageHandlerContext context)

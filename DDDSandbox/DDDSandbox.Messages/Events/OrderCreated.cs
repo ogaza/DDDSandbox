@@ -9,4 +9,9 @@
     public DateTime? TimeStamp { get; set; }
     public double? Amount { get; set; }
   }
+
+  public class OrderCreated_V2 : OrderCreated 
+  {
+    public string? AddressId { get; set; }
+  }
 }

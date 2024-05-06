@@ -13,7 +13,11 @@ namespace DDDSandbox.Endpoint.Handlers
     {
       var id = DataBase.SaveOrder(message.Name);
 
-      var orderCreatedEvent = new OrderCreated { OrderId = $"{id}" };
+      // this handler sends new version of the order created event
+      // since OrderCreated_V2 inherits from OrderCreated
+      // all the OrderCreated handlers will also handle the 
+      // OrderCreated_V2 event
+      var orderCreatedEvent = new OrderCreated_V2 { OrderId = $"{id}", AddressId = "SomeAddressId" };
       await context.Publish(orderCreatedEvent);
       
       

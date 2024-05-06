@@ -31,6 +31,7 @@
     public string? UserId { get; set; }
     public string? OrderId { get; set; }
     public string? ShippingTypeId { get; set; }
+    public string? AddressId { get; set; }
   }
 
   public class ShippingConfirmation 
