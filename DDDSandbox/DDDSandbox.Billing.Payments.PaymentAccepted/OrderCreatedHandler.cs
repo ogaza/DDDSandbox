@@ -1,5 +1,5 @@
 ﻿using DDDSandbox.Billing.Messages.Commands;
-using DDDSandbox.Messages.Events;
+using DDDSandbox.Sales.Messages.Events;
 using NServiceBus;
 
 namespace DDDSandbox.Billing.Payments.PaymentAccepted

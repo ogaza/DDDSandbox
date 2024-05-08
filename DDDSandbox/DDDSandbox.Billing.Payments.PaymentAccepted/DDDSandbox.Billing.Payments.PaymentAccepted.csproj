@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DDDSandbox.Billing.Messages\DDDSandbox.Billing.Messages.csproj" />
-    <ProjectReference Include="..\DDDSandbox.Messages\DDDSandbox.Messages.csproj" />
+    <ProjectReference Include="..\DDDSandbox.Sales.Messages\DDDSandbox.Sales.Messages.csproj" />
   </ItemGroup>
 
 </Project>

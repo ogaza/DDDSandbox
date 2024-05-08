@@ -1,4 +1,4 @@
-﻿using DDDSandbox.Messages.Events;
+﻿using DDDSandbox.Sales.Messages.Events;
 using NServiceBus;
 
 namespace DDDSandbox.Shipping.BusinessCustomers.ShippingArranged
