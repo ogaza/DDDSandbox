@@ -13,18 +13,22 @@ wt.exe ^
   new-tab --title "API" ^
     -d "%location%\DDDSandbox.API" ^
     powershell -noexit "dotnet run --no-build" ; ^
-  new-tab --title "PaymentAccepted" ^
+  new-tab --title "Web" ^
+    -d "%location%\DDDSandbox.Web" ^
+    powershell -noexit "dotnet run --no-build" ; ^
+  new-tab --title "Payments.PaymentAccepted" ^
     -d "%location%\DDDSandbox.Billing.Payments.PaymentAccepted" ^
     powershell -noexit "dotnet run --no-build" ; ^
   new-tab --title "Endpoint" ^
     -d "%location%\DDDSandbox.Endpoint" ^
     powershell -noexit "dotnet run --no-build" ; ^
-  new-tab --title "ShippingArranged" ^
+  new-tab --title "Orders.OrderCreated" ^
+    -d "%location%\DDDSandbox.Sales.Orders.OrderCreated" ^
+    powershell -noexit "dotnet run --no-build" ; ^
+  new-tab --title "BusinessCustomers.ShippingArranged" ^
     -d "%location%\DDDSandbox.Shipping.BusinessCustomers.ShippingArranged" ^
     powershell -noexit "dotnet run --no-build" ; ^
   new-tab --title "Subscriber" ^
     -d "%location%\DDDSandbox.Subscriber" ^
-    powershell -noexit "dotnet run --no-build" ; ^
-  new-tab --title "Web" ^
-    -d "%location%\DDDSandbox.Web" ^
     powershell -noexit "dotnet run --no-build"
+  
