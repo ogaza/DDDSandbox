@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using NServiceBus;
 
 namespace DDDSandbox.API.Controllers
 {
@@ -13,22 +12,15 @@ namespace DDDSandbox.API.Controllers
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
-    private readonly IMessageSession _messageSession;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, IMessageSession messageSession)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
-      _messageSession = messageSession;
       _logger = logger;
     }
 
     [HttpGet]
-    public async Task<IEnumerable<WeatherForecast>> GetAsync()
+    public IEnumerable<WeatherForecast> GetAsync()
     {
-
-      var message = new Messages.MyMessage { Name = "test" };
-
-      await _messageSession.Send(message);
-
       return Enumerable.Range(1, 5).Select(index => new WeatherForecast
       {
         Date = DateTime.Now.AddDays(index),

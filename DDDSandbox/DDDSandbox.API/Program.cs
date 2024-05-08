@@ -1,20 +1,8 @@
 using DDDSandbox.Messages;
+using DDDSandbox.Sales.Messages.Commands;
 using NServiceBus;
 
 var builder = WebApplication.CreateBuilder(args);
-
-/*
-var endpointConfiguration = new EndpointConfiguration("Samples.ASPNETCore.Sender");
-var transport = endpointConfiguration.UseTransport(new LearningTransport());
-transport.RouteToEndpoint(
-    assembly: typeof(MyMessage).Assembly,
-    destination: "DDFSandbox.Endpoint");
-
-endpointConfiguration.UseSerialization<SystemJsonSerializer>();
-endpointConfiguration.SendOnly();
-
-builder.UseNServiceBus(endpointConfiguration);
-*/
 
 var webClientCorsPolicyName = "DDDSandbox.Web";
 ConfigureCors(builder, webClientCorsPolicyName);
@@ -41,7 +29,9 @@ static void ConfigureCors(WebApplicationBuilder builder, string webClientCorsPol
         name: webClientCorsPolicyName,
         policy =>
         {
-          policy.WithOrigins("http://localhost:5292");
+          policy
+            //.AllowAnyOrigin();
+            .WithOrigins("http://localhost:5292").AllowAnyMethod().AllowAnyHeader();
         });
   });
 }
@@ -50,10 +40,6 @@ static void ConfigureBus(WebApplicationBuilder builder)
 {
   builder.Host.UseNServiceBus(context =>
     {
-     
-      
-      //builder.UseNServiceBus(endpointConfiguration);
-
       var endpointConfiguration =
       new EndpointConfiguration("DDDSandbox.API");
 
@@ -61,13 +47,14 @@ static void ConfigureBus(WebApplicationBuilder builder)
       transport.RouteToEndpoint(
           assembly: typeof(MyMessage).Assembly,
           destination: "DDDSandbox.Endpoint");
+      transport.RouteToEndpoint(
+          assembly: typeof(PlaceOrder).Assembly,
+          destination: "DDDSandbox.Sales.Orders.OrderCreated");
       endpointConfiguration.UseSerialization<SystemJsonSerializer>();
       //endpointConfiguration.SendOnly();
 
       //endpointConfiguration.MakeInstanceUniquelyAddressable("1");
       //endpointConfiguration.EnableCallbacks();
-      //endpointConfiguration.UseTransport(new LearningTransport());
-      //endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
       //var endpointInstance = await Endpoint.Start(endpointConfiguration);
 
