@@ -1,11 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>Web Client</title>
-  <script src="./js/index.js" defer type="module"></script>
-</head>
-<body>
-  DDD Sandbox App - Web Client
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Client</title>
+    <script src="./js/index.js" defer type="module"></script>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header>DDD Sandbox App</header>
+      <main>
+        <section class="main-form">
+          <h3>Main form</h3>
+          <form>
+            <label for="userId">User Id</label>
+            <input name="userId" type="text" />
+            <label for="productIds">Product Ids</label>
+            <input name="productIds" type="text" />
+            <label for="shippingTypeId">Shipping Type Id</label>
+            <input name="shippingTypeId" type="text" />
+            <input type="submit" value="Place Order" />
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
