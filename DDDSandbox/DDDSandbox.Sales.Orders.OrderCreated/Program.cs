@@ -11,6 +11,9 @@ Console.WriteLine("Press any key to exit");
 Console.ReadKey();
 await endpointInstance.Stop();
 
+// based on sample code from
+// https://github.com/Particular/docs.particular.net/tree/9afc805de7deff29e877ae70057ce87cf98fdd3c/samples/pubsub/native/Core_8
+
 // probably instead of running as a console app
 // wouold be better to create a nservicebus host
 // https://github.com/Particular/docs.particular.net/tree/master/samples/hosting/generic-host/Core_8

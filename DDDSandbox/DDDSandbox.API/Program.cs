@@ -1,4 +1,3 @@
-using DDDSandbox.Messages;
 using DDDSandbox.Sales.Messages.Commands;
 using NServiceBus;
 
@@ -44,9 +43,7 @@ static void ConfigureBus(WebApplicationBuilder builder)
       new EndpointConfiguration("DDDSandbox.API");
 
       var transport = endpointConfiguration.UseTransport(new LearningTransport());
-      transport.RouteToEndpoint(
-          assembly: typeof(MyMessage).Assembly,
-          destination: "DDDSandbox.Endpoint");
+
       transport.RouteToEndpoint(
           assembly: typeof(PlaceOrder).Assembly,
           destination: "DDDSandbox.Sales.Orders.OrderCreated");

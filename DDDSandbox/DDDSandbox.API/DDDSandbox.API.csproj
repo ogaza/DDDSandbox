@@ -11,8 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DDDSandbox.Messages\DDDSandbox.Messages.csproj" />
     <ProjectReference Include="..\DDDSandbox.Sales.Messages\DDDSandbox.Sales.Messages.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\" />
   </ItemGroup>
 
 </Project>
