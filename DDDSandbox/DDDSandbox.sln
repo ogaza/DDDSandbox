@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Sales.Messages",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Sales.Orders.OrderCreated", "DDDSandbox.Sales.Orders.OrderCreated\DDDSandbox.Sales.Orders.OrderCreated.csproj", "{2290E290-0E44-408B-8C50-2869BDC0EEE4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Promotions.LuckyWinner.LuckyWinnerSelected", "DDDSandbox.Promotions.LuckyWinner.LuckyWinnerSelected\DDDSandbox.Promotions.LuckyWinner.LuckyWinnerSelected.csproj", "{538E122E-9595-4B52-988F-DAB988C225FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDSandbox.Promotions.LuckyWinner.Bridge", "DDDSandbox.Promotions.LuckyWinner.Bridge\DDDSandbox.Promotions.LuckyWinner.Bridge.csproj", "{8F57C68F-83BD-456B-AE70-7EA393B635ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{2290E290-0E44-408B-8C50-2869BDC0EEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2290E290-0E44-408B-8C50-2869BDC0EEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2290E290-0E44-408B-8C50-2869BDC0EEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538E122E-9595-4B52-988F-DAB988C225FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538E122E-9595-4B52-988F-DAB988C225FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538E122E-9595-4B52-988F-DAB988C225FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538E122E-9595-4B52-988F-DAB988C225FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F57C68F-83BD-456B-AE70-7EA393B635ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F57C68F-83BD-456B-AE70-7EA393B635ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F57C68F-83BD-456B-AE70-7EA393B635ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F57C68F-83BD-456B-AE70-7EA393B635ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
