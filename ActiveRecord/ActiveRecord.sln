@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveRecord", "ActiveRecord.Web\ActiveRecord.Web.csproj", "{F8887770-708A-4E6A-8B6E-3E91788A7C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActiveRecord.Web", "ActiveRecord.Web\ActiveRecord.Web.csproj", "{F8887770-708A-4E6A-8B6E-3E91788A7C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveRecord.Model", "ActiveRecord.Model\ActiveRecord.Model.csproj", "{54B09B3E-7921-4AD7-BBC4-28B97B9F980B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F8887770-708A-4E6A-8B6E-3E91788A7C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8887770-708A-4E6A-8B6E-3E91788A7C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8887770-708A-4E6A-8B6E-3E91788A7C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B09B3E-7921-4AD7-BBC4-28B97B9F980B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B09B3E-7921-4AD7-BBC4-28B97B9F980B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B09B3E-7921-4AD7-BBC4-28B97B9F980B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B09B3E-7921-4AD7-BBC4-28B97B9F980B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
