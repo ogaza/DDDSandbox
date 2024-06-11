@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ActiveRecord.Model\ActiveRecord.Model.csproj" />
+  </ItemGroup>
+
 </Project>
