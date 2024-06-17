@@ -19,12 +19,14 @@ namespace ActiveRecord.Model
       var list = new List<Post>();
 
       const string queryString =
-        @"SELECT 
-            Id, 
-            Subject, 
-            Text,
-            Created
-          from dbo.Posts";
+        @"
+        SELECT 
+          Id, 
+          Subject, 
+          Text,
+          Created
+        FROM 
+          Posts";
 
       using (SqlConnection connection = 
         new(DBConfiguration.ConnectionString))
@@ -35,24 +37,24 @@ namespace ActiveRecord.Model
         SqlDataReader reader = command.ExecuteReader();
         while (reader.Read())
         {
-          Console.WriteLine(
-            "\t{0}\t{1}\t{2}",
-            reader[0], 
-            reader[1], 
-            reader[2]);
-
-          list.Add(
-            new Post 
-            { 
-              Id = (int)reader[0],
-              Subject = (string)reader[1],
-              Text = (string)reader[2],
-              Created = (DateTime?)reader[3]
-            });
+          list.Add(GetFromReader(reader));
         }
         reader.Close();
       }
       return list;
+    }
+
+    protected static Post GetFromReader(SqlDataReader reader)
+    {
+      Post result = new()
+      {
+        Id = (int)reader[0],
+        Subject = (string)reader[1],
+        Text = (string)reader[2],
+        Created = (DateTime?)reader[3]
+      };
+
+      return result;
     }
   }
 }
