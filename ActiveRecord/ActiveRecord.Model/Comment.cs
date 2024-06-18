@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace ActiveRecord.Model
 {
@@ -43,6 +44,31 @@ namespace ActiveRecord.Model
         reader.Close();
       }
       return list;
+    }
+
+    public static bool Delete(int id)
+    {
+      int rowsAffected = 0;
+
+      const string queryString =
+        @"
+        DELETE
+          Comments
+        WHERE 
+          Id = @id";
+
+      using (SqlConnection connection =
+        new(DBConfiguration.ConnectionString))
+      {
+        connection.Open();
+        SqlCommand command = new(queryString, connection);
+
+        command.Parameters.Add(new SqlParameter("@id", id));
+
+        rowsAffected =  command.ExecuteNonQuery();
+      }
+
+      return rowsAffected > 0;
     }
 
     protected static Comment GetFromReader(SqlDataReader reader)
