@@ -13,5 +13,21 @@ namespace ActiveRecord.Web.Controllers
     {
       return await Task.FromResult(Post.GetAll());
     }
+
+    //[HttpDelete("Posts/{id:int}", Name = "DeletePost")]
+    //public async Task<int?> DeletePost(int id)
+    //{
+    //  int? result = null;
+
+    //  return await Task.FromResult(id);
+    //}
+    
+    [HttpDelete("Comments/{id:int}", Name = "DeleteComment")]
+    public async Task<bool> DeleteComment(int id)
+    {
+      var result = Comment.Delete(id);
+
+      return await Task.FromResult(result);
+    }
   }
 }
