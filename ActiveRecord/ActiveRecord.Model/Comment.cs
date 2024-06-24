@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Xml.Linq;
+﻿using System.Data.SqlClient;
 
 namespace ActiveRecord.Model
 {
@@ -145,6 +143,8 @@ namespace ActiveRecord.Model
           Author = @Author,
           PostId = @PostId,
           Created = @Created
+        OUTPUT 
+          INSERTED.Id
         WHERE
           Id = @Id";
 
@@ -168,14 +168,7 @@ namespace ActiveRecord.Model
         command.Parameters.Add(new SqlParameter("@PostId", comment?.Post?.Id ?? 0));
         command.Parameters.Add(new SqlParameter("@Created", comment?.Created ?? DateTime.Now));
 
-        if (comment?.Id > 0)
-        {
-          result = command.ExecuteNonQuery();
-        }
-        else
-        {
-          result = (int)command.ExecuteScalar();
-        }
+        result = (int)command.ExecuteScalar();
       }
 
       return result;

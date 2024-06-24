@@ -24,8 +24,8 @@ async function startTheApp() {
     text: "updated comment from the ui"
   };
 
-  const numberOfUpdatedCommens = await commentsApi.save(newComment);
-  console.log("numberOfUpdatedCommens", numberOfUpdatedCommens);
+  const updatedCommentId = await commentsApi.save(newComment);
+  console.log("updatedCommentId", updatedCommentId);
 
   const postDeleted = await commentsApi.delete(newCommentId);
   console.log("postDeleted", postDeleted);

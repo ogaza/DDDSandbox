@@ -1,8 +1,9 @@
 USE [Blog]
 GO
 
-DECLARE @Id INT = NULL;
-DECLARE @Text nvarchar(max);
+DECLARE @Id INT = 31;
+--DECLARE @Id INT = NULL;
+DECLARE @Text nvarchar(max) = 'updated';
 DECLARE @Author nvarchar(200);
 DECLARE @PostId int = 1;
 DECLARE @Created datetime;
@@ -35,5 +36,6 @@ ELSE
     Author = @Author,
     PostId = @PostId,
     Created = @Created
+  OUTPUT INSERTED.Id
   WHERE 
     Id = @Id
