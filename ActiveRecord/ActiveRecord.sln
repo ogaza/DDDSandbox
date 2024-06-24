@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{99AD5E47-3ADE-45B7-B8CD-D847E5967854}"
 	ProjectSection(SolutionItems) = preProject
 		Comments_FindAll.sql = Comments_FindAll.sql
+		Comments_SAVE.sql = Comments_SAVE.sql
 		CreateBlogDB.sql = CreateBlogDB.sql
 	EndProjectSection
 EndProject

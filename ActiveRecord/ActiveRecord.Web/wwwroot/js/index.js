@@ -6,10 +6,29 @@ async function startTheApp() {
   const commentsApi = createApi("comment");
   const postsApi = createApi("post");
 
-  await postsApi.getAll();
+  const posts = await postsApi.getAll();
+  console.log("all posts:", posts);
 
-  const commentId = 3;
-  await commentsApi.deletecomment(commentId);
+  let newComment = {
+    text: "comment from the ui",
+    post: {
+      id: 1
+    }
+  };
+  const newCommentId = await commentsApi.save(newComment);
+  console.log("newCommentId", newCommentId);
+
+  newComment = {
+    ...newComment,
+    id: newCommentId,
+    text: "updated comment from the ui"
+  };
+
+  const numberOfUpdatedCommens = await commentsApi.save(newComment);
+  console.log("numberOfUpdatedCommens", numberOfUpdatedCommens);
+
+  const postDeleted = await commentsApi.delete(newCommentId);
+  console.log("postDeleted", postDeleted);
 }
 
 const apiUrl = "http://localhost:5236/blog";
@@ -19,8 +38,11 @@ function createApi(entityName) {
     getAll: function () {
       return getAll(entityName);
     },
-    [`delete${entityName}`]: function (id) {
+    delete: function (id) {
       return deleteEntity(entityName, id);
+    },
+    save: function (entity) {
+      return saveEntity(entityName, entity);
     }
   };
 }
@@ -30,11 +52,27 @@ async function deleteEntity(entityName, id) {
     method: "DELETE"
   });
   const responseJson = await response.json();
-  console.log(responseJson);
+
+  return responseJson;
+}
+
+async function saveEntity(entityName, entity) {
+  const response = await fetch(`${apiUrl}/${entityName}s/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: JSON.stringify(entity)
+  });
+  const responseJson = await response.json();
+
+  return responseJson;
 }
 
 async function getAll(entityName) {
   const response = await fetch(`${apiUrl}/${entityName}s`);
   const responseJson = await response.json();
-  console.log(responseJson);
+
+  return responseJson;
 }

@@ -29,5 +29,13 @@ namespace ActiveRecord.Web.Controllers
 
       return await Task.FromResult(result);
     }
+
+    [HttpPost("Comments", Name = "SaveComment")]
+    public async Task<int> SaveComment(Comment comment)
+    {
+      var result = Comment.Save(comment);
+
+      return await Task.FromResult(result);
+    }
   }
 }
