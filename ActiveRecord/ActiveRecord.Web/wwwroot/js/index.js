@@ -18,10 +18,14 @@ async function startTheApp() {
   const newCommentId = await commentsApi.save(newComment);
   console.log("newCommentId", newCommentId);
 
+  newComment = await commentsApi.getById(newCommentId);
+  console.log("newComment form the server: ", newComment);
+
   newComment = {
     ...newComment,
-    id: newCommentId,
-    text: "updated comment from the ui"
+    post: {
+      id: 1
+    }
   };
 
   const updatedCommentId = await commentsApi.save(newComment);
@@ -38,6 +42,9 @@ function createApi(entityName) {
     getAll: function () {
       return getAll(entityName);
     },
+    getById: function (id) {
+      return getById(entityName, id);
+    },
     delete: function (id) {
       return deleteEntity(entityName, id);
     },
@@ -45,6 +52,15 @@ function createApi(entityName) {
       return saveEntity(entityName, entity);
     }
   };
+}
+
+async function getById(entityName, id) {
+  const response = await fetch(`${apiUrl}/${entityName}s/${id}`, {
+    method: "GET"
+  });
+  const responseJson = await response.json();
+
+  return responseJson;
 }
 
 async function deleteEntity(entityName, id) {
