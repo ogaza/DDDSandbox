@@ -33,7 +33,7 @@ namespace ActiveRecord.Web.Controllers
     [HttpGet("Comments/{id:int}", Name = "GetComment")]
     public async Task<Comment> GetComment(int id)
     {
-      var result = new Comment().GetById(id);
+      var result = Comment.GetById(id);
 
       return await Task.FromResult(result);
     }

@@ -2,9 +2,9 @@
 
 namespace ActiveRecord.Model
 {
-  public abstract class ActiveRecord<E> where E : class, new()
+  public abstract class ActiveRecord<E> where E : ActiveRecord<E>, new()
   {
-    protected string QueryString
+    protected static string QueryString_GetAll
     {
       get
       {
@@ -13,78 +13,50 @@ namespace ActiveRecord.Model
         SELECT
           *
         FROM "
-          + $"{GetType().Name}s " +
+          + $"{typeof(E).Name}s ";
+      }
+    }
+    protected static string QueryString_Get
+    {
+      get
+      {
+        return
+        @"
+        SELECT
+          *
+        FROM "
+          + $"{typeof(E).Name}s " +
         //+ nameof(E) +
         @"
         WHERE
           Id = @id";
-          }
+      }
+    }
+
+    protected static string QueryString_Delete
+    {
+      get
+      {
+        return
+        @"
+        DELETE
+        FROM "
+          + $"{typeof(E).Name}s " +
+        //+ nameof(E) +
+        @"
+        WHERE
+          Id = @id";
+      }
     }
 
     public int? Id { get; set; }
 
-    public E GetById(int id)
-    //public E GetById(int id, Func<SqlDataReader, E> GetFromReader)
+    public static IEnumerable<E> GetAll()
     {
-      E result;
-      //GetType(result).
-       
-      using (SqlConnection connection =
-        new(DBConfiguration.ConnectionString))
-      {
-        connection.Open();
+      E elem;
+      var list = new List<E>();
 
-        string qstr = QueryString;
-        SqlCommand command = new(qstr, connection);
-
-        command.Parameters.Add(new SqlParameter("@id", id));
-
-        SqlDataReader reader = command.ExecuteReader();
-
-        if (reader.Read())
-        {
-          result = GetFromReader(reader);
-        }
-        else
-        {
-          result = new E();
-        }
-
-        reader.Close();
-      }
-      return result;
-    }
-
-    protected abstract E GetFromReader(SqlDataReader reader);
-  }
-
-  public class Comment : ActiveRecord<Comment>
-  {
-    // public int Id { get; set; }
-    //protected string 
-
-    public Post? Post { get; set; }
-
-    public string? Text { get; set; }
-
-    public string? Author { get; set; }
-
-    public DateTime? Created { get; set; }
-
-    public IEnumerable<Comment> GetAll()
-    {
-      var list = new List<Comment>();
-
-      const string queryString =
-        @"
-        SELECT
-          Id,
-          Text,
-          Author,
-          PostId,
-          Created
-        FROM 
-          Comments";
+      string queryString = QueryString_GetAll;
 
       using (SqlConnection connection =
         new(DBConfiguration.ConnectionString))
@@ -95,65 +67,47 @@ namespace ActiveRecord.Model
         SqlDataReader reader = command.ExecuteReader();
         while (reader.Read())
         {
-          list.Add(GetFromReader(reader));
+          elem = new();
+          elem.GetFromReader(reader);
+          list.Add(elem);
         }
         reader.Close();
       }
       return list;
     }
 
-    //public Comment GetById(int id)
-    //{
-    //  Comment result;
+    public static E GetById(int id)
+    {
+      E result = new();
+       
+      using (SqlConnection connection =
+        new(DBConfiguration.ConnectionString))
+      {
+        connection.Open();
 
-    //  const string queryString =
-    //    @"
-    //    SELECT
-    //      Id,
-    //      Text,
-    //      Author,
-    //      PostId,
-    //      Created
-    //    FROM 
-    //      Comments
-    //    WHERE
-    //      Id = @id";
+        string qstr = QueryString_Get;
+        SqlCommand command = new(qstr, connection);
 
-    //  using (SqlConnection connection =
-    //    new(DBConfiguration.ConnectionString))
-    //  {
-    //    connection.Open();
+        command.Parameters.Add(new SqlParameter("@id", id));
 
-    //    SqlCommand command = new(queryString, connection);
+        SqlDataReader reader = command.ExecuteReader();
 
-    //    command.Parameters.Add(new SqlParameter("@id", id));
+        if (reader.Read())
+        {
+          result = new E();
+          result.GetFromReader(reader);
+        }
 
-    //    SqlDataReader reader = command.ExecuteReader();
-
-    //    if (reader.Read())
-    //    {
-    //      result = this.GetFromReader(reader);
-    //    }
-    //    else
-    //    {
-    //      result = new Comment();
-    //    }
-
-    //    reader.Close();
-    //  }
-    //  return result;
-    //}
+        reader.Close();
+      }
+      return result;
+    }
 
     public static bool Delete(int id)
     {
       int rowsAffected = 0;
 
-      const string queryString =
-        @"
-        DELETE
-          Comments
-        WHERE 
-          Id = @id";
+      string queryString = QueryString_Delete;
 
       using (SqlConnection connection =
         new(DBConfiguration.ConnectionString))
@@ -163,11 +117,24 @@ namespace ActiveRecord.Model
 
         command.Parameters.Add(new SqlParameter("@id", id));
 
-        rowsAffected =  command.ExecuteNonQuery();
+        rowsAffected = command.ExecuteNonQuery();
       }
 
       return rowsAffected > 0;
     }
+
+    protected abstract void GetFromReader(SqlDataReader reader);
+  }
+
+  public class Comment : ActiveRecord<Comment>
+  {
+    public Post? Post { get; set; }
+
+    public string? Text { get; set; }
+
+    public string? Author { get; set; }
+
+    public DateTime? Created { get; set; }
 
     public static int Save(Comment comment) 
     {
@@ -231,31 +198,12 @@ namespace ActiveRecord.Model
       return result;
     }
 
-    protected override Comment GetFromReader(SqlDataReader reader)
+    protected override void GetFromReader(SqlDataReader reader)
     {
-      // throw new NotImplementedException();
-      Comment result = new()
-      {
-        Id = (int)reader[nameof(Id)],
-        Text = (string)reader[nameof(Text)],
-        Author = (string)reader[nameof(Author)],
-        Created = (DateTime?)reader[nameof(Created)]
-      };
-
-      return result;
+      Id = (int)reader[nameof(Id)];
+      Text = (string)reader[nameof(Text)];
+      Author = (string)reader[nameof(Author)];
+      Created = (DateTime?)reader[nameof(Created)];
     }
-
-    //protected static Comment GetFromReader(SqlDataReader reader)
-    //{
-    //  Comment result = new()
-    //  {
-    //    Id = (int)reader[0],
-    //    Text = (string)reader[1],
-    //    Author = (string)reader[2],
-    //    Created = (DateTime?)reader[3]
-    //  };
-
-    //  return result;
-    //}
   }
 }
