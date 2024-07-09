@@ -11,7 +11,8 @@ namespace ActiveRecord.Web.Controllers
     [HttpGet("Posts", Name = "GetPosts")]
     public async Task<IEnumerable<Post>> GetPosts()
     {
-      return await Task.FromResult(Post.GetAll());
+      return await Task.FromResult(Post.GetAllWithComments());
+      //return await Task.FromResult(Post.GetAll());
     }
 
     //[HttpDelete("Posts/{id:int}", Name = "DeletePost")]
