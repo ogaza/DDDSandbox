@@ -41,7 +41,7 @@ namespace ActiveRecord.Model
           {
             elem = new()
             {
-              Comments = new List<Comment>()
+              Comments = []
             };
             elem.GetFromReader(reader);
             list.Add(elem);
