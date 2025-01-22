@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{6D091AB4-8AE0-45B7-A3D4-06129DD76257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{6D091AB4-8AE0-45B7-A3D4-06129DD76257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionApp", "DependencyInjectionApp\DependencyInjectionApp.csproj", "{80101E14-DCC3-41FE-8046-229821BECB8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjectionApp", "DependencyInjectionApp\DependencyInjectionApp.csproj", "{80101E14-DCC3-41FE-8046-229821BECB8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInversionPrinciple", "DependencyInversionPrinciple", "{AA0D4C69-D44C-4217-AB64-08F5C8705E59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D091AB4-8AE0-45B7-A3D4-06129DD76257} = {AA0D4C69-D44C-4217-AB64-08F5C8705E59}
+		{80101E14-DCC3-41FE-8046-229821BECB8F} = {AA0D4C69-D44C-4217-AB64-08F5C8705E59}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {956DE16B-AD0E-4380-B784-02BDB554BB0B}
