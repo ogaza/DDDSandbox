@@ -7,10 +7,13 @@
       switch (paymentType) 
       {
         case PaymentType.PayPal:
-          return new PayPalPayment();
+          // the hardcoded values just for the simplicity
+          // of the example - in real app this values
+          // should probably be read from the app configuration
+          return new PayPalPayment("PP-12", "passPP");
 
         case PaymentType.WorldPay:
-          return new WorldPayPayment();
+          return new WorldPayPayment("acc123", "pass123", "pr-01");
 
         default:
           throw new ApplicationException(

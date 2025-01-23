@@ -2,28 +2,41 @@
 {
   public abstract class PaymentServiceBase 
   {
-    public abstract string Refund(decimal amount, string transactionId);
+    public abstract RefundResponse Refund(decimal amount, string transactionId);
   }
 
   public class PayPalPayment : PaymentServiceBase
   {
-    public override string Refund(decimal amount, string transactionId)
+    public override RefundResponse Refund(decimal amount, string transactionId)
     {
+      var refundResponse = new RefundResponse();
+
       var paymentService = new MockPayPalWebService();
       var token = paymentService.ObtainToken(AccountName, Password);
       var response = paymentService.MakeRefund(amount, transactionId, token);
 
-      return response;
+      refundResponse.Success = response.Contains("A_success");
+
+      return refundResponse;
     }
 
     public string AccountName { get; set; }
+
+    public PayPalPayment(string accountName, string password)
+    {
+      AccountName = accountName;
+      Password = password;
+    }
+
     public string Password { get; set; }
   }
 
   public class WorldPayPayment : PaymentServiceBase
   {
-    public override string Refund(decimal amount, string transactionId)
+    public override RefundResponse Refund(decimal amount, string transactionId)
     {
+      var refundResponse = new RefundResponse();
+
       var paymentService = new MockWorldPayWebService();
       var response = 
         paymentService
@@ -34,10 +47,24 @@
             AccountPassword, 
             ProductId);
 
-      return response;
+      refundResponse.Success = response.Contains("Auth");
+
+      return refundResponse;
     }
 
     public string AccountId { get; set; }
+
+    public WorldPayPayment(
+      string accountId,
+      string accountPassword,
+      string productId
+      )
+    {
+      AccountId = accountId;
+      AccountPassword = accountPassword;
+      ProductId = productId;
+    }
+
     public string AccountPassword { get; set; }
     public string ProductId { get; set; }
   }
