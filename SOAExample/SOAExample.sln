@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.Model", "SOAExample.Model\SOAExample.Model.csproj", "{B0904FBF-E16F-48F3-BF52-DAE2B4E9B05E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.Repository", "SOAExample.Repository\SOAExample.Repository.csproj", "{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B0904FBF-E16F-48F3-BF52-DAE2B4E9B05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0904FBF-E16F-48F3-BF52-DAE2B4E9B05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0904FBF-E16F-48F3-BF52-DAE2B4E9B05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
