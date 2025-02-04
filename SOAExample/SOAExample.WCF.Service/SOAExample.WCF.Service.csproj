@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SOAExample.Model\SOAExample.Model.csproj" />
+    <ProjectReference Include="..\SOAExample.WCF.DataContract\SOAExample.WCF.DataContract.csproj" />
+    <ProjectReference Include="..\SOAExample.WCF.ServiceContract\SOAExample.WCF.ServiceContract.csproj" />
+  </ItemGroup>
+
+</Project>
