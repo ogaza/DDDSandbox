@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.WCF.ServiceContr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.WCF.Service", "SOAExample.WCF.Service\SOAExample.WCF.Service.csproj", "{181FC9AD-C1FA-493E-9C02-C0A83ACF1537}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAExample.WCF.ServiceHost", "SOAExample.WCF.ServiceHost\SOAExample.WCF.ServiceHost.csproj", "{902A5EBC-D2E5-4D94-81C2-E54DF808DA5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{181FC9AD-C1FA-493E-9C02-C0A83ACF1537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{181FC9AD-C1FA-493E-9C02-C0A83ACF1537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{181FC9AD-C1FA-493E-9C02-C0A83ACF1537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{902A5EBC-D2E5-4D94-81C2-E54DF808DA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{902A5EBC-D2E5-4D94-81C2-E54DF808DA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{902A5EBC-D2E5-4D94-81C2-E54DF808DA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{902A5EBC-D2E5-4D94-81C2-E54DF808DA5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D} = {1BB16DF7-84E8-4D5C-A1B6-1CA594CE6F3B}
 		{132D829B-EF9A-4027-80B5-C0C7F77E6CAD} = {1BB16DF7-84E8-4D5C-A1B6-1CA594CE6F3B}
 		{181FC9AD-C1FA-493E-9C02-C0A83ACF1537} = {1BB16DF7-84E8-4D5C-A1B6-1CA594CE6F3B}
+		{902A5EBC-D2E5-4D94-81C2-E54DF808DA5B} = {1BB16DF7-84E8-4D5C-A1B6-1CA594CE6F3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F36DED7A-729F-4A7E-8138-6F3D452876AF}

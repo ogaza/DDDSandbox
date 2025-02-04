@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost 
+    Language="C#" 
+    Debug="true" 
+    Service="SOAExample.WCF.Service.TicketService" 
+%>
