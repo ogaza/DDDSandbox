@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.Model", "SOAExam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.Repository", "SOAExample.Repository\SOAExample.Repository.csproj", "{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCF", "WCF", "{1BB16DF7-84E8-4D5C-A1B6-1CA594CE6F3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOAExample.WCF.DataContract", "SOAExample.WCF.DataContract\SOAExample.WCF.DataContract.csproj", "{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D8272EF-4C0D-4855-B00D-9ABC9755F72B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4DFF4A8-9CA7-4BA2-8DFD-BF6DA9E4FE1D} = {1BB16DF7-84E8-4D5C-A1B6-1CA594CE6F3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F36DED7A-729F-4A7E-8138-6F3D452876AF}
