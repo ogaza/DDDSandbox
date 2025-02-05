@@ -19,7 +19,7 @@ namespace SOAExample.Model
     public List<TicketReservation> ReservedTickets { get; set; }
     public List<TicketPurchase> PurchasedTickets { get; set; }
 
-    public TicketReservation ReserveTicke(int quantity) 
+    public TicketReservation ReserveTicket(int quantity) 
     {
       if (!CanReserveTicket(quantity)) 
       {
@@ -32,6 +32,21 @@ namespace SOAExample.Model
       ReservedTickets.Add(reservation);
 
       return reservation;
+    }
+
+    public TicketPurchase PurchaseTicketWith(Guid reservationId) 
+    {
+      if(!CanPurchaseTicketWith(reservationId)) {
+        new ApplicationException(DetermineWhyTicketCannotbePurchasedWith(reservationId));
+      }
+
+      TicketReservation reservation = GetReservationWith(reservationId);
+      TicketPurchase ticket = TicketPurchaseFactory.CreateTicket(this, reservation.TicketQuantity);
+
+      reservation.HasBeenRedeemed = true;
+      PurchasedTickets.Add(ticket);
+
+      return ticket;
     }
 
     public bool CanReserveTicket(int quantity) 
